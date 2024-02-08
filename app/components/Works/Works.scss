@@ -1,0 +1,90 @@
+@import "../../sass/variables";
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 5vh 15px;
+
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    gap: 5vw;
+  }
+  article {
+    height: min-content;
+    flex: 1 1 100%;
+    display: flex;
+    a {
+      color: inherit;
+      width: 100%;
+    }
+    h3 {
+      margin-top: 20px;
+      font-weight: 500;
+    }
+
+    .wrap-img {
+      overflow: hidden;
+      img {
+        transition: transform 0.35s;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      flex: 1 1 calc(50% - 5vh);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      &:first-child {
+        flex: 0 0 56%;
+      }
+
+      &:first-child,
+      &:nth-child(4),
+      &:nth-child(5) {
+        .wrap-img {
+          img {
+            max-height: 50vh;
+          }
+        }
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          .wrap-img {
+            img {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(5) {
+        flex: 0 0 calc(44% - 5vw);
+      }
+      &:nth-child(3) {
+        margin-left: auto;
+      }
+      &:nth-child(4) {
+        flex: 0 0 calc(56% - 100px);
+        .wrap-img {
+          img {
+            max-height: 50vh;
+            object-fit: cover;
+          }
+        }
+      }
+
+      &:nth-child(6) {
+        .wrap-img {
+          img {
+            max-height: 60vh;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+@import url("https://fredommaster.pl/antondev/wp-includes/css/dist/block-library/style.min.css?ver=6.4.3");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "./variables.scss";
+@import "./inputs.scss";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-size: 16px;
+  background: $blackTheme;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-weight: 500;
+  color: $whiteTheme;
+  font-family: $mon;
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.2;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  scrollbar-width: 10px;
+  scrollbar-color: $whiteTheme;
+  &::-webkit-scrollbar {
+    width: 13px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $whiteTheme;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $blackTheme;
+    border-radius: 50px;
+    border: 1px solid $whiteTheme;
+  }
+}
+
+a,
+a:active,
+a:hover {
+  outline: none;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 1 100%;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    max-width: 720px;
+  }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    max-width: 950px;
+    padding: 0;
+  }
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    max-width: 1200px;
+  }
+
+  @media (min-width: map-get($grid-breakpoints, xxl)) {
+    max-width: 1400px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-weight: 800;
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    line-height: 1.4;
+  }
+}
+h1 {
+  font-size: clamp(1.9rem, 11vw, 9.7rem);
+}
+
+.fixed-page {
+  overflow: hidden;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 2.5vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+}
+
+.m-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 5vh 1rem 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
+}
+
+.brd {
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  border: 1px solid $blackTheme;
+  margin-top: 0.7rem;
+  display: inline-block;
+  text-transform: uppercase;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "agency",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.18.0",
+    "@wordpress/block-serialization-default-parser": "^4.49.0",
+    "@wordpress/shortcode": "^3.49.0",
+    "crypto-js": "^4.2.0",
+    "html-react-parser": "^5.1.1",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.50.0",
+    "react-spring": "^9.7.3"
+  },
+  "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.18.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "sass": "^1.70.0"
+  }
+}

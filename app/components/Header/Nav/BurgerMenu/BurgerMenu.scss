@@ -1,0 +1,96 @@
+@use "../../../../sass/variables";
+
+.burger {
+  display: none;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+  z-index: 6;
+  margin-left: auto;
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: translate(0, 8px) rotate(-45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translate(0, -8px) rotate(45deg);
+      }
+    }
+  }
+
+  span {
+    display: none;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: transform 0.4s;
+
+    @media (max-width: map-get(variables.$grid-breakpoints, xl)) {
+      display: block;
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: map-get(variables.$grid-breakpoints, xl)) {
+    display: inline-block;
+  }
+}
+
+.navLinks {
+  background-color: variables.$blackTheme;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  transition: 0.35s;
+  animation: fadeIn 0.35s ease-in forwards;
+  padding: 50px;
+  position: fixed;
+  overflow: auto;
+  ul {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    li {
+      a {
+        color: variables.$whiteTheme;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    left: -100vw;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    left: 0;
+  }
+  to {
+    opacity: 0;
+    left: -100vw;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.7s forwards; /* Use 'forwards' to keep the element in its final state */
+}

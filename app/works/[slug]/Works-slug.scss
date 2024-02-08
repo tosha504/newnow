@@ -1,0 +1,38 @@
+@use "../../sass/variables";
+main {
+  // color: variables.$blackTheme;
+
+  &.works-single-page {
+    .container {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+
+      // @media (min-width: map-get(variables.$grid-breakpoints, md)) {
+      //   max-width: 720px;
+      // }
+      // @media (min-width: map-get(variables.$grid-breakpoints, lg)) {
+      //   max-width: 950px;
+      // }
+      // @media (min-width: map-get(variables.$grid-breakpoints, xl)) {
+      //   max-width: 1200px;
+      // }
+
+      @media (min-width: map-get(variables.$grid-breakpoints, xxl)) {
+        max-width: 1400px;
+      }
+    }
+
+    h1 {
+      line-height: 1.2;
+      // font-size: clamp(1.9rem, 5vw, 7.75rem);
+      font-size: 40px;
+      padding: 2vh 0;
+    }
+
+    .brd {
+      border: 1px solid variables.$whiteTheme;
+    }
+  }
+}

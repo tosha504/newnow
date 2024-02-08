@@ -1,0 +1,57 @@
+@use "../../sass/variables";
+.footer {
+  padding: 5vh 0;
+
+  a {
+    font-size: 14px;
+    @extend %after-border;
+  }
+
+  &__top,
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    &_left,
+    &_right {
+      flex: 1 1 100%;
+    }
+
+    &_left {
+      @media (min-width: map-get(variables.$grid-breakpoints, md)) {
+        flex: 1 1 calc(30% - 20px);
+      }
+    }
+
+    &_right {
+      ul {
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 20px;
+        @media (min-width: map-get(variables.$grid-breakpoints, md)) {
+          flex-direction: row;
+        }
+      }
+
+      @media (min-width: map-get(variables.$grid-breakpoints, md)) {
+        flex: 1 1 calc(70% - 20px);
+      }
+    }
+  }
+
+  &__top {
+    &_right {
+      ul {
+        li {
+          @media (min-width: map-get(variables.$grid-breakpoints, md)) {
+            flex: 1 1 calc(33% - 20px);
+          }
+        }
+      }
+    }
+    margin-bottom: 20px;
+  }
+}

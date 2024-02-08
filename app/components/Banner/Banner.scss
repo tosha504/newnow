@@ -1,0 +1,22 @@
+.banner {
+  &.anim-background {
+    animation: backgroundPosition 14s linear alternate;
+  }
+  @keyframes backgroundPosition {
+    0% {
+      background-position: 30% 100%;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  h1 {
+    text-align: center;
+    line-height: 0.85;
+  }
+  padding: 30vh 0;
+}
