@@ -4,10 +4,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "newwon.local",
-        port: "",
-        pathname: "/wp-content/uploads/**",
+        protocol: "https",
+        hostname: "devwp.smarthost.pl",
+        // port: "",
+        // pathname: "/wp-content/uploads/**",
       },
     ],
   },

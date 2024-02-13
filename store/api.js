@@ -1,5 +1,5 @@
 export async function getHeaderData() {
-  const apiUrl = `${process.env.WORDPRESS_BASE_URL}graphql`;
+  const apiUrl = `${process.env.NEXT_PUBLIC_PAGE_URL}graphql`;
   const query = `
   query Header {
     menus {
@@ -45,7 +45,7 @@ export async function getHeaderData() {
 
 export async function getBuilderData(param) {
   const curentParam = param !== undefined ? param : "/";
-  const apiUrl = `${process.env.WORDPRESS_BASE_URL}graphql`;
+  const apiUrl = `${process.env.NEXT_PUBLIC_PAGE_URL}graphql`;
   const query = `
   query HomePageData {
     pageBy(uri: "${curentParam}") {
@@ -179,7 +179,7 @@ export async function postApiDataToForm(formData) {
 }
 
 export async function getSingleWorkPost(param) {
-  const apiUrl = `${process.env.WORDPRESS_BASE_URL}graphql`;
+  const apiUrl = `${process.env.NEXT_PUBLIC_PAGE_URL}graphql`;
   const query = `
     query works($uri: String = "${param}") {
     workBy(uri: $uri) {
@@ -214,7 +214,7 @@ export async function getSingleWorkPost(param) {
 }
 
 export async function getFooterData() {
-  const apiUrl = `${process.env.WORDPRESS_BASE_URL}graphql`;
+  const apiUrl = `${process.env.NEXT_PUBLIC_PAGE_URL}graphql`;
   const query = `
   query Footer {
     themeFooterSettings {

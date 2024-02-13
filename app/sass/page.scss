@@ -22,12 +22,12 @@ body {
   margin: 0;
   overflow-x: hidden;
   line-height: 1.2;
-  scroll-behavior: smooth;
   font-size: 16px;
   scroll-padding-top: 4rem;
 }
 
 body {
+  scroll-behavior: smooth;
   scrollbar-width: 10px;
   scrollbar-color: $whiteTheme;
   &::-webkit-scrollbar {
