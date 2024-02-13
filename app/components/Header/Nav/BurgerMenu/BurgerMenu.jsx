@@ -5,7 +5,6 @@ import useMountTransition from "./useMountTransition";
 import Link from "next/link";
 
 export default function BurgerMenu({ links }) {
-  console.log(links);
   const [isOpen, setIsOpen] = useState(false);
   const hasTransitionedIn = useMountTransition(isOpen, 1000);
 

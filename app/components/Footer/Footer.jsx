@@ -2,10 +2,11 @@ import Link from "next/link";
 import "./Footer.scss";
 import { getFooterData } from "@/store/api";
 import Image from "next/image";
+import { decodeHtml } from "@/helpers";
 const Footer = async () => {
   const { data } = await getFooterData();
   const footer = data.themeFooterSettings.footer;
-  console.log(footer);
+  const topRight = footer.topRight;
   return (
     <>
       <footer className="footer">
@@ -23,20 +24,30 @@ const Footer = async () => {
                 </Link>
               </div>
             )}
-            <div className="footer__top_right">
-              <ul>
-                <li>
-                  <Link href="#">
-                    WeWork, Piotrkowska 101<br></br>Łódź, Poland
-                  </Link>
-                </li>
-                <li>
-                  <Link href="mailto:">best@email.ever</Link>
-                  <br></br>
-                  <Link href="tel:+">700400300</Link>
-                </li>
-              </ul>
-            </div>
+            {topRight && (
+              <div className="footer__top_right">
+                <ul>
+                  {topRight.map(({ link, typeOfLink }) => {
+                    const decodedTitle = decodeHtml(link.title);
+
+                    return (
+                      <li key={link.url}>
+                        <Link
+                          href={link.url}
+                          dangerouslySetInnerHTML={{ __html: decodedTitle }}
+                        ></Link>
+                      </li>
+                    );
+                  })}
+
+                  <li>
+                    <Link href="mailto:">best@email.ever</Link>
+                    <br></br>
+                    <Link href="tel:+">700400300</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
           <div className="footer__bottom">
             <div className="footer__bottom_right">

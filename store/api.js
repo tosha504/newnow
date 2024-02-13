@@ -43,11 +43,12 @@ export async function getHeaderData() {
   return res.json();
 }
 
-export async function getBuilderData() {
+export async function getBuilderData(param) {
+  const curentParam = param !== undefined ? param : "/";
   const apiUrl = `${process.env.WORDPRESS_BASE_URL}graphql`;
   const query = `
   query HomePageData {
-    page(id: "cG9zdDoyMg==") {
+    pageBy(uri: "${curentParam}") {
       id
       template {
         ... on DefaultTemplate {
@@ -110,6 +111,14 @@ export async function getBuilderData() {
           }
         }
       }
+      seo {
+        focuskw
+        metaDesc
+        opengraphDescription
+        opengraphSiteName
+        opengraphTitle
+      }
+      content
     }
   }
 `;
@@ -178,6 +187,13 @@ export async function getSingleWorkPost(param) {
       title
       status
       content
+      seo {
+        focuskw
+        metaDesc
+        opengraphDescription
+        opengraphSiteName
+        opengraphTitle
+      }
     }
   }
 `;
@@ -220,6 +236,7 @@ export async function getFooterData() {
             title
             url
           }
+          typeOfLink
         }
       }
     }

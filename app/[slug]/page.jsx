@@ -1,40 +1,27 @@
-import { getSingleWorkPost } from "@/store/api";
+import { getBuilderData } from "@/store/api";
 import "../sass/page.scss";
+import "./slug-page.scss";
 
-export async function getSinglePage(param) {
-  const apiUrl = `${process.env.WORDPRESS_BASE_URL}graphql`;
-  const query = `
-  query PageData($uri: String = "${param}") {
-    pageBy(uri: $uri) {
-      id
-      content
-    }
-  }
-`;
-
-  const res = await fetch(apiUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query }),
-  });
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+export async function generateMetadata({ params, searchParams }, parent) {
+  const { data } = await getBuilderData(params.slug);
+  const seo = data?.pageBy?.seo;
+  return {
+    title: `${seo.opengraphSiteName} - ${seo.opengraphTitle}`,
+    description: seo.metaDesc,
+    keywords: seo.focuskw,
+  };
 }
 
 const page = async ({ params }) => {
-  const { data } = await getSinglePage(params.slug);
-  console.log(data);
+  const { data } = await getBuilderData(params.slug);
   return (
-    <main style={{ background: "white", color: "#000" }}>
+    <main className="slug-page">
       <div className="container">
-        sdfsdf
-        <div dangerouslySetInnerHTML={{ __html: data?.pageBy?.content }}></div>
+        {data?.pageBy?.content && (
+          <div
+            dangerouslySetInnerHTML={{ __html: data?.pageBy?.content }}
+          ></div>
+        )}
       </div>
     </main>
   );

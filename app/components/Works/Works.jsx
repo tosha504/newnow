@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import "./Works.scss";
+
 const Works = ({ works }) => {
-  // console.log(works);
   return (
     <>
       <div className="container" id={works?.anchor ? works?.anchor : ""}>

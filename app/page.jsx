@@ -4,18 +4,20 @@ import { Banner } from "./components/Banner/Banner";
 import Works from "./components/Works/Works";
 import ContentToApiWithChoose from "./components/ContentToApiWithChoose/ContentToApiWithChoose";
 import ContactFormSection from "./components/ContactFormItems/ContactFormSection";
-async function singlePage() {
-  // const getPosts = await fetch(`http://newnow/wp-json/custom/v1/pages/${id}`, {
-  //   cache: "force-cache",
-  // });
-  // // revalidatePath("/[slug]", "page");
-  // const getPostsJa = await getPosts.json();
-  // return getPostsJa;
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  const { data } = await getBuilderData(params.slug);
+  const seo = data.pageBy.seo;
+  return {
+    title: `${seo.opengraphSiteName} - ${seo.opengraphTitle}`,
+    description: seo.metaDesc,
+    keywords: seo.focuskw,
+  };
 }
 
-const Home = async () => {
-  const { data } = await getBuilderData();
-  const builder = data.page.template.fieldToApi.builder;
+const Home = async ({ params, searchParams }) => {
+  const { data } = await getBuilderData(params.slug);
+  const builder = data.pageBy.template.fieldToApi.builder;
   return (
     <>
       <main>

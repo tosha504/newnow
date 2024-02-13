@@ -10,15 +10,8 @@ const ContactForm = () => {
   const [response, setResponse] = useState({});
 
   useEffect(() => {
-    // Fetch form configuration from API
-    // const formDataFromApi = formApiData();
-    // console.log(formDataFromApi);
     async function awaitRenderFormData() {
       const resp = await formApiData();
-      // const data = await response.json();
-      // if (response.data.status === 404) {
-      //   // setFormFields(response.data.status);
-      // }
       setFormFields(resp);
     }
     awaitRenderFormData().catch(console.error);
