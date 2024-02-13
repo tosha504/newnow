@@ -18,10 +18,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  console.log(montserrat);
-
   return (
-    <html lang="pl" className={`${montserrat.variable}`}>
+    <html lang="pl" className={montserrat.variable}>
       <body>
         <div className="wrapper">
           <Header />

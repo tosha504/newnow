@@ -125,6 +125,7 @@ export async function getBuilderData(param) {
 
   const res = await fetch(apiUrl, {
     method: "POST",
+    next: { revalidate: 60 },
     headers: {
       "Content-Type": "application/json",
     },
