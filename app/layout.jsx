@@ -1,4 +1,5 @@
-// "use client";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/600.css";
 import "./sass/page.scss";
 import img from "../public/favicon.png";
 import { Header } from "./components/Header/Header";
