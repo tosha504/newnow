@@ -21,11 +21,11 @@ select {
   background: transparent;
   width: 100%;
   color: $whiteTheme;
-  font-family: $mon;
+  font-family: var(--font-montserrat);
   border: 1px solid $whiteTheme;
   &::placeholder {
     color: $whiteTheme;
-    font-family: $mon;
+    font-family: var(--font-montserrat);
   }
 
   &.error {

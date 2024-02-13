@@ -33,7 +33,7 @@
       background: variables.$whiteTheme;
       text-transform: uppercase;
       font-weight: 600;
-      font-family: variables.$mon;
+      font-family: var(--font-montserrat);
       transition: 0.3s;
       @media (hover: hover) {
         &:hover {

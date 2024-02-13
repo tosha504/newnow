@@ -17,7 +17,7 @@ body {
   position: relative;
   font-weight: 500;
   color: $whiteTheme;
-  font-family: $mon;
+  font-family: var(--font-montserrat);
   margin: 0;
   overflow-x: hidden;
   line-height: 1.2;
