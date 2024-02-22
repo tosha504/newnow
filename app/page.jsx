@@ -9,6 +9,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const { data } = await getBuilderData(params.slug);
   const seo = data.pageBy.seo;
   return {
+    generator: "Next.js",
     title: `${seo.opengraphSiteName} - ${seo.opengraphTitle}`,
     description: seo.metaDesc,
     keywords: seo.focuskw,
